@@ -722,4 +722,20 @@ async function adminRemoveUser(userId) {
     renderAcadPeriodAdmin(),
     renderAcadHistory(),
   ]);
+    const loginId   = document.getElementById("loginId");
+    const loginPass = document.getElementById("loginPassword");
+    const regName = document.getElementById("regName");
+    const regPass = document.getElementById("regPassword");
+
+    function handleLoginEnter(e) {
+      if (e.key === "Enter") login();
+    }
+    function handleRegisterEnter(e) {
+    if (e.key === "Enter") registerAccount();
+    }
+
+    if (loginId)   loginId.addEventListener("keydown",   handleLoginEnter);
+    if (loginPass) loginPass.addEventListener("keydown", handleLoginEnter);
+    if (regName) regName.addEventListener("keydown", handleRegisterEnter);
+    if (regPass) regPass.addEventListener("keydown", handleRegisterEnter);
 })();
