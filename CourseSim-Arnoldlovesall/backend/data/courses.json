@@ -1,0 +1,6 @@
+[
+  { "code": "ICT 111", "title": "Object Oriented Programming", "capacity": 3, "prerequisite": null },
+  { "code": "ICT 112", "title": "Operating Systems",           "capacity": 2, "prerequisite": null },
+  { "code": "ICT 113", "title": "Database Systems",            "capacity": 2, "prerequisite": "ICT 111" },
+  { "code": "ICT 114", "title": "Software Engineering",        "capacity": 3, "prerequisite": null }
+]

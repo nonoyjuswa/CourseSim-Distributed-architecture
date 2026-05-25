@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ADMIN-001",
+    "password": "admin123",
+    "name": "System Admin",
+    "role": "admin"
+  },
+  {
+    "id": "REG-001",
+    "password": "reg123",
+    "name": "Registrar",
+    "role": "registrar"
+  },
+  {
+    "id": "2026-0001-N",
+    "name": "Joshua Pogi",
+    "password": "pogi123",
+    "role": "student",
+    "yearLevel": "1st"
+  },
+  {
+    "id": "2026-0002-M",
+    "name": "Nathaniel Saurin",
+    "password": "pogi123",
+    "role": "student",
+    "yearLevel": "1st"
+  }
+]

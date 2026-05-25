@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CourseSim – Registrar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="logo">CS</div>
+          <div><h1>CourseSim</h1><p>Student Portal</p></div>
+        </div>
+        <nav class="nav">
+          <a id="navLogout" href="index.html">Login</a>
+          <a class="active" href="enrollments.html">Requests</a>
+          <a href="grades.html">Grades</a>
+        </nav>
+      </div>
+      <div class="user-card">
+        <div class="avatar" id="sidebarAvatar">?</div>
+        <div>
+          <h3 id="sidebarName">Registrar</h3>
+          <p  id="sidebarId">ID</p>
+          <span class="role-pill registrar" id="sidebarRole"></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <h2>Enrollment Requests</h2>
+        <p>Review and act on student enrollment and drop requests.</p>
+      </header>
+
+      <section class="stats">
+        <div class="card"><h3 id="studentCount">0</h3><p>Total Students</p></div>
+        <div class="card"><h3 id="courseCount">0</h3><p>Total Courses</p></div>
+        <div class="card"><h3 id="enrollCount">0</h3><p>Active Enrollments</p></div>
+        <div class="card"><h3 id="pendingCount">0</h3><p>Pending Requests</p></div>
+      </section>
+
+      <section class="panels">
+        <div class="panel">
+          <h3>Pending Requests</h3>
+          <ul id="requestList"></ul>
+        </div>
+        <div class="panel">
+          <h3>Request History</h3>
+          <ul id="historyList"></ul>
+        </div>
+      </section>
+
+      <section class="panels" style="margin-top:18px">
+        <div class="panel panel-full">
+          <h3>All Enrolled Students</h3>
+          <ul id="allEnrollList"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    (function() {
+      const user = getCurrentUser();
+      if (!user || user.role !== "registrar") { window.location.href = "index.html"; }
+      document.getElementById("sidebarRole").className = "role-pill registrar";
+    })();
+  </script>
+</body>
+</html>

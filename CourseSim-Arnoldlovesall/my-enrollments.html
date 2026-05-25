@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CourseSim – My Enrollments</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="logo">CS</div>
+          <div><h1>CourseSim</h1><p>Student Portal</p></div>
+        </div>
+        <nav class="nav">
+          <a id="navLogout" href="index.html">Login</a>
+          <a href="courses.html">Courses</a>
+          <a class="active" href="my-enrollments.html">My Enrollments</a>
+          <a href="my-requests.html">My Requests</a>
+          <a href="academic-history.html">Academic History</a>
+        </nav>
+      </div>
+      <div class="user-card">
+        <div class="avatar" id="sidebarAvatar">?</div>
+        <div>
+          <h3 id="sidebarName">Student</h3>
+          <p  id="sidebarId">ID</p>
+          <span class="role-pill student" id="sidebarRole"></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <h2>My Enrollments</h2>
+        <p>Your currently enrolled courses and grades.</p>
+      </header>
+
+      <section class="panels">
+        <div class="panel panel-full">
+          <h3>Enrolled Courses</h3>
+          <ul id="myEnrollList"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    (function() {
+      const user = getCurrentUser();
+      if (!user || user.role !== "student") { window.location.href = "index.html"; }
+      document.getElementById("sidebarRole").className = "role-pill " + user.role;
+    })();
+  </script>
+</body>
+</html>

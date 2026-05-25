@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CourseSim – Register</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    select {
+      width: 100%; padding: 13px 16px;
+      border: 1px solid rgba(148,163,184,0.15);
+      border-radius: 12px; outline: none;
+      font-size: 0.93rem; font-family: var(--font-body);
+      background: rgba(15,23,42,0.85); color: #e2e8f0;
+      margin-bottom: 12px; transition: border-color 0.2s;
+      appearance: none; cursor: pointer;
+    }
+    select:focus { border-color: rgba(59,130,246,0.45); }
+    select option { background: #0f172a; }
+    .select-wrap { position: relative; }
+    .select-wrap::after {
+      content: "▾"; position: absolute; right: 14px; top: 50%;
+      transform: translateY(-60%); color: #64748b; pointer-events: none;
+    }
+  </style>
+</head>
+<body class="login-page">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="brand">
+        <div class="logo">CS</div>
+        <div><h1>CourseSim</h1><p>Student Portal</p></div>
+      </div>
+      <h2>Create Student Account</h2>
+
+      <div id="generatedId" class="id-display"></div>
+      <p class="id-hint" id="idHint" style="display:none;">
+        Please save your Student ID — you will need it to log in.
+      </p>
+
+      <input id="regName" type="text" placeholder="Full name" />
+
+      <div class="select-wrap">
+        <select id="regYear">
+          <option value="" disabled selected>Select year level</option>
+          <option value="1st">1st Year</option>
+          <option value="2nd">2nd Year</option>
+          <option value="3rd">3rd Year</option>
+          <option value="4th">4th Year</option>
+        </select>
+      </div>
+
+      <div class="password-wrapper">
+        <input id="regPassword" type="password" placeholder="Password (min. 6 characters)" />
+        <button type="button" class="toggle-password" onclick="togglePassword('regPassword', this)">Show</button>
+      </div>
+
+      <button onclick="registerAccount()">Create Account</button>
+      <p id="authMessage"></p>
+      <hr />
+      <p class="small">Already have an account? <a href="index.html">Login here</a></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const observer = new MutationObserver(() => {
+      const idBox = document.getElementById('generatedId');
+      const hint  = document.getElementById('idHint');
+      if (idBox && idBox.style.display !== 'none') hint.style.display = 'block';
+    });
+    observer.observe(document.getElementById('generatedId'), { attributes: true });
+  </script>
+</body>
+</html>

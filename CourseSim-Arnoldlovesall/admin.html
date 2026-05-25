@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CourseSim – Admin</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    select {
+      width: 100%; padding: 13px 16px;
+      border: 1px solid rgba(148,163,184,0.15); border-radius: 12px; outline: none;
+      font-size: 0.93rem; font-family: var(--font-body);
+      background: rgba(15,23,42,0.85); color: #e2e8f0;
+      margin-bottom: 12px; appearance: none; cursor: pointer;
+    }
+    select:focus { border-color: rgba(59,130,246,0.45); }
+    select option { background: #0f172a; }
+
+    .period-label {
+      font-family: var(--font-head); font-size: 1rem; font-weight: 700;
+      color: #60a5fa; margin-bottom: 14px; display: block;
+    }
+    .user-item-header {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .user-avatar-sm {
+      width: 36px; height: 36px; border-radius: 9px; flex-shrink: 0;
+      background: linear-gradient(135deg, #6366f1, #2563eb);
+      display: grid; place-items: center;
+      font-family: var(--font-head); font-weight: 700; font-size: 0.78rem; color: #fff;
+    }
+    .user-info { flex: 1; min-width: 0; }
+    .user-remove-btn { width: auto; padding: 7px 14px; font-size: 0.78rem; margin-bottom: 0; flex-shrink: 0; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="logo">CS</div>
+          <div><h1>CourseSim</h1><p>Student Portal</p></div>
+        </div>
+        <nav class="nav">
+          <a id="navLogout" href="index.html">Login</a>
+          <a class="active" href="admin.html">Admin Panel</a>
+        </nav>
+      </div>
+      <div class="user-card">
+        <div class="avatar" id="sidebarAvatar">?</div>
+        <div>
+          <h3 id="sidebarName">Admin</h3>
+          <p  id="sidebarId">ID</p>
+          <span class="role-pill admin" id="sidebarRole"></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <h2>Admin Panel</h2>
+        <p>Manage courses, academic periods, and student accounts.</p>
+      </header>
+
+      <section class="stats">
+        <div class="card"><h3 id="studentCount">0</h3><p>Total Students</p></div>
+        <div class="card"><h3 id="courseCount">0</h3><p>Total Courses</p></div>
+        <div class="card"><h3 id="enrollCount">0</h3><p>Active Enrollments</p></div>
+        <div class="card"><h3 id="fullCount">0</h3><p>Full Courses</p></div>
+      </section>
+
+      <!-- Row 1: Academic Period + Add Course -->
+      <section class="panels">
+        <div class="panel">
+          <h3>Academic Period</h3>
+          <span class="period-label" id="currentPeriodLabel">Loading…</span>
+          <input id="acadYear" type="text" placeholder="School year (e.g. 2024-2025)" />
+          <select id="acadSem">
+            <option value="1st">1st Semester</option>
+            <option value="2nd">2nd Semester</option>
+            <option value="Summer">Summer</option>
+          </select>
+          <button onclick="saveAcadPeriodAdmin()">Set Period</button>
+          <p id="message"></p>
+        </div>
+
+        <div class="panel">
+          <h3>Add New Course</h3>
+          <div class="form-grid">
+            <input id="newCode"     type="text"   placeholder="Course code (e.g. ICT 115)" />
+            <input id="newCapacity" type="number" placeholder="Capacity" min="1" />
+            <input id="newTitle"    type="text"   placeholder="Course title" class="full" />
+            <input id="newPrereq"   type="text"   placeholder="Prerequisite code (optional)" class="full" />
+          </div>
+          <button onclick="adminAddCourse()">Add Course</button>
+        </div>
+      </section>
+
+      <!-- Row 2: Course Catalog + User Management -->
+      <section class="panels" style="margin-top:18px">
+        <div class="panel">
+          <h3>Course Catalog</h3>
+          <ul id="adminCourseList"></ul>
+        </div>
+
+        <div class="panel">
+          <h3>Student Accounts</h3>
+          <ul id="adminUserList"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    (function() {
+      const user = getCurrentUser();
+      if (!user || user.role !== "admin") { window.location.href = "index.html"; return; }
+      document.getElementById("sidebarRole").className = "role-pill admin";
+    })();
+  </script>
+</body>
+</html>

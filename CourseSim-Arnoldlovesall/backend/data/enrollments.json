@@ -1,0 +1,79 @@
+[
+  {
+    "studentId": "2026-0001-N",
+    "studentName": "Joshua Pogi",
+    "courseCode": "ICT 111",
+    "courseTitle": "Object Oriented Programming",
+    "active": true,
+    "grade": 69,
+    "schoolYear": "2026-2027",
+    "semester": "1st",
+    "enrolledAt": "5/23/2026, 10:26:32 PM"
+  },
+  {
+    "studentId": "2026-0001-N",
+    "studentName": "Joshua Pogi",
+    "courseCode": "ICT 112",
+    "courseTitle": "Operating Systems",
+    "active": true,
+    "grade": 67,
+    "schoolYear": "2026-2027",
+    "semester": "1st",
+    "enrolledAt": "5/23/2026, 10:26:33 PM"
+  },
+  {
+    "studentId": "2026-0001-N",
+    "studentName": "Joshua Pogi",
+    "courseCode": "ICT 114",
+    "courseTitle": "Software Engineering",
+    "active": true,
+    "grade": 98,
+    "schoolYear": "2026-2027",
+    "semester": "1st",
+    "enrolledAt": "5/23/2026, 10:26:34 PM"
+  },
+  {
+    "studentId": "2026-0002-M",
+    "studentName": "Nathaniel Saurin",
+    "courseCode": "ICT 111",
+    "courseTitle": "Object Oriented Programming",
+    "active": true,
+    "grade": 75,
+    "schoolYear": "2026-2027",
+    "semester": "1st",
+    "enrolledAt": "5/23/2026, 10:50:06 PM"
+  },
+  {
+    "studentId": "2026-0002-M",
+    "studentName": "Nathaniel Saurin",
+    "courseCode": "ICT 112",
+    "courseTitle": "Operating Systems",
+    "active": true,
+    "grade": 90,
+    "schoolYear": "2026-2027",
+    "semester": "1st",
+    "enrolledAt": "5/23/2026, 10:51:01 PM"
+  },
+  {
+    "studentId": "2026-0002-M",
+    "studentName": "Nathaniel Saurin",
+    "courseCode": "ICT 114",
+    "courseTitle": "Software Engineering",
+    "active": true,
+    "grade": 93,
+    "schoolYear": "2026-2027",
+    "semester": "1st",
+    "enrolledAt": "5/23/2026, 10:51:01 PM"
+  },
+  {
+    "studentId": "2026-0002-M",
+    "studentName": "Nathaniel Saurin",
+    "courseCode": "ICT 113",
+    "courseTitle": "Database Systems",
+    "active": true,
+    "grade": 90,
+    "schoolYear": "2026-2027",
+    "semester": "1st",
+    "enrolledAt": "5/23/2026, 10:51:01 PM"
+  }
+]

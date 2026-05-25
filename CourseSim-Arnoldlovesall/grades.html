@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CourseSim – Grades</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div>
+        <div class="brand">
+          <div class="logo">CS</div>
+          <div><h1>CourseSim</h1><p>Student Portal</p></div>
+        </div>
+        <nav class="nav">
+          <a id="navLogout" href="index.html">Login</a>
+          <a href="enrollments.html">Requests</a>
+          <a class="active" href="grades.html">Grades</a>
+        </nav>
+      </div>
+      <div class="user-card">
+        <div class="avatar" id="sidebarAvatar">?</div>
+        <div>
+          <h3 id="sidebarName">Registrar</h3>
+          <p  id="sidebarId">ID</p>
+          <span class="role-pill registrar" id="sidebarRole"></span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="hero">
+        <h2>Grades</h2>
+        <p>Assign grades to enrolled students.</p>
+      </header>
+
+      <section class="panels">
+        <div class="panel">
+          <h3>Assign Grade</h3>
+          <input id="studentIdInput" type="text"   placeholder="Student ID (e.g. 2025-0001-A)" />
+          <input id="courseCodeInput" type="text"  placeholder="Course code (e.g. ICT 111)" />
+          <input id="gradeInput"     type="number" placeholder="Grade 0–100" min="0" max="100" />
+          <button onclick="assignGrade()">Save Grade</button>
+          <p id="message"></p>
+        </div>
+        <div class="panel">
+          <h3>All Enrollments</h3>
+          <ul id="allEnrollList"></ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    (function() {
+      const user = getCurrentUser();
+      if (!user || user.role !== "registrar") { window.location.href = "index.html"; }
+      document.getElementById("sidebarRole").className = "role-pill registrar";
+    })();
+  </script>
+</body>
+</html>
