@@ -24,5 +24,12 @@
     "password": "pogi123",
     "role": "student",
     "yearLevel": "1st"
+  },
+  {
+    "id": "2026-0003-M",
+    "name": "Joshua Tamayo",
+    "password": "10119172",
+    "role": "student",
+    "yearLevel": "3rd"
   }
 ]
